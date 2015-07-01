@@ -27,10 +27,11 @@ public class ClinicTest {
     private static final int NUMBER_OF_CAT_TYPE = 1;
     private static final int NUMBER_OF_DOG_TYPE = 2;
     private static final int NUMBER_OF_BIRD_TIPE = 3;
+    private static final int COUNT_OF_PERSONS_AFTER_USE_ADD_METHOD = 3;
 
 
     private Clinic clinic = new Clinic();
-    private ArrayList<Person> expectedPersons = new ArrayList<Person>(100);
+    private ArrayList<Person> expectedPersons = new ArrayList<Person>(clinic.getMaxPersonsInClinic());
     private ArrayList<Person> actualPersons;
 
     public ClinicTest() {
@@ -39,12 +40,24 @@ public class ClinicTest {
         expectedPersons.add(THIRD_INPUT_PERSON);
     }
 
+    /**
+     * Производит добавление трех определнных
+     * при инициализации класса
+     * Персон в массив(коллекцию) Персон
+     * экземпляра класса Clinic.
+     * В дальнейшем используется для тестирования методов
+     */
     public void addPersonsToClinic() {
         clinic.addPerson(NAME_OF_FIRST_PERSON, NAME_OF_PET_FIRST_PERSON, NUMBER_OF_CAT_TYPE);
         clinic.addPerson(NAME_OF_SECOND_PERSON, NAME_OF_PET_SECOND_PERSON, NUMBER_OF_DOG_TYPE);
         clinic.addPerson(NAME_OF_THIRD_PERSON, NAME_OF_PET_THIRD_PERSON, NUMBER_OF_BIRD_TIPE);
     }
 
+    public void addPersonsToMaxCountOfClinic() {
+        for (int i = 0; i < clinic.getMaxPersonsInClinic(); i++) {
+            clinic.addPerson("nameOfPerson" + i, "nameOfPet" + i, NUMBER_OF_CAT_TYPE);
+        }
+    }
     /**
      * Сравнение ожидаемого массива(коллекции) Персон
      * с массивом(коллекции) сгенерированным с помощью
@@ -148,14 +161,30 @@ public class ClinicTest {
 
     }
 
+    /**
+     * Сравнение ожидаемого и полученного значения
+     * возвращаемого методом isClinicFull()
+     * класса Clinic, до и после добавления в него 100
+     * Персон методом AddPerson класса Clinic
+     * через метод addPersonsToMaxCountOfClinic()
+     * @throws Exception выбрасывает ошибку если
+     * до или после добавления Персон ожидаемое значение
+     * не сходится с актуальным
+     */
     @Test
     public void testIsClinicFull() throws Exception {
-
+        final boolean EXPECTED_VALUE_BEFORE_ADD = false;
+        final boolean ACTUAL_VALUE_BEFORE_ADD = clinic.isClinicFull();
+        assertEquals(EXPECTED_VALUE_BEFORE_ADD, ACTUAL_VALUE_BEFORE_ADD);
+        addPersonsToMaxCountOfClinic();
+        final boolean EXPECTED_VALUE_AFTER_ADD = true;
+        final boolean ACTUAL_VALUE_AFTER_ADD = clinic.isClinicFull();
+        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
     /**
      * Сравнение ожидаемого и полученного значения
-     * возвращаемого методом isClinicEmpty
+     * возвращаемого методом isClinicEmpty()
      * класса Clinic, до и после добавления в него
      * Персон методом AddPerson класса Clinic
      * через метод addPersonToClinic()
@@ -174,8 +203,23 @@ public class ClinicTest {
         assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
+    /**
+     * Сравнение ожидаемого и полченного
+     * значения количества Персон в массиве(коллекции)
+     * экземпляра класса Clinic методом
+     * getCountOfPersons() класса Clinic,
+     * ожидаемое задается количеством
+     * Персон после ипользования метода
+     * addPersonsToClinic()
+     * @throws Exception выбрасвает ошибку если
+     * ожидаемое количество Персон не совпадает
+     * с полученным методом
+     */
     @Test
-    public void testGetCountOfPerson() throws Exception {
-
+    public void testGetCountOfPersons() throws Exception {
+        addPersonsToClinic();
+        final int EXPECTED_COUNT_OF_PERSONS = COUNT_OF_PERSONS_AFTER_USE_ADD_METHOD;
+        final int ACTUAL_COUNT_OF_PERSONS = clinic.getCountOfPersons();
+        assertEquals(EXPECTED_COUNT_OF_PERSONS, ACTUAL_COUNT_OF_PERSONS);
     }
 }

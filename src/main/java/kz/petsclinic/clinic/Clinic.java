@@ -208,7 +208,7 @@ public class Clinic {
      * не достигло максимального размера массива
      */
     public boolean isClinicFull() {
-        return (getCountOfPerson() == MAX_PERSONS_IN_CLINIC) ? true : false;
+        return (getCountOfPersons() == MAX_PERSONS_IN_CLINIC) ? true : false;
     }
 
     /**
@@ -217,7 +217,7 @@ public class Clinic {
      * ни одной Персоны
      */
     public boolean isClinicEmpty() {
-        return (getCountOfPerson() == 0) ? true : false;
+        return (getCountOfPersons() == 0) ? true : false;
     }
 
     /**
@@ -225,12 +225,16 @@ public class Clinic {
      * @return возвращает количество Персон в массиве
      * используя метод Коллекции
      */
-    public int getCountOfPerson() {
+    public int getCountOfPersons() {
         return persons.size();
     }
 
     public ArrayList<Person> getPersonsArray() {
         return persons;
+    }
+
+    public int getMaxPersonsInClinic() {
+        return MAX_PERSONS_IN_CLINIC;
     }
 
 }
