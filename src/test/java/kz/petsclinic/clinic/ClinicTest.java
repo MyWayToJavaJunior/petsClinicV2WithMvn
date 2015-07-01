@@ -203,14 +203,17 @@ public class ClinicTest {
      * Сравнение ожидаемого и полученного значения
      * возвращаемого методом findPersonIdByPetName()
      * класса Clinic, после переименования животного
-     * методом renPet() класса Clinic
+     * методом renPet() класса Clinic, метод
+     * findPersonIdByPetName() возвращает 0
+     * когда находит Персону с ожидаемым именем
+     * в результате перименования
      * @throws Exception выбрасывает ошибку если
-     * до или после добавления Персон ожидаемое значение
+     * после переименования Персон ожидаемое значение
      * не сходится с актуальным
      */
     @Test
     public void testRenPet() throws Exception {
-        final int EXPECTED_RESULT = -1;
+        final int EXPECTED_RESULT = 0;
         addPersonsToClinic();
         final String NAME_OF_REN_PET = NAME_OF_PET_FIRST_PERSON;
         final String EXPECTED_NEW_NAME_OF_PET = "expectedNewNameOfPet";
