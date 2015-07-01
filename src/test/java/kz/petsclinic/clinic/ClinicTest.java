@@ -133,12 +133,24 @@ public class ClinicTest {
 
     @Test
     public void testFindPersonIdByPersonName() throws Exception {
-
+        final int EXPECTED_RESULT_BEFORE_ADD = -1;
+        final int ACTUAL_RESULT_BEFORE_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_ADD, ACTUAL_RESULT_BEFORE_ADD);
+        addPersonsToClinic();
+        final int EXPECTED_VALUE_AFTER_ADD = 0;
+        final int ACTUAL_VALUE_AFTER_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
     @Test
     public void testFindPersonIdByPetName() throws Exception {
-
+        final int EXPECTED_RESULT_BEFORE_ADD = -1;
+        final int ACTUAL_RESULT_BEFORE_ADD = clinic.findPersonIdByPetName(NAME_OF_PET_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_ADD, ACTUAL_RESULT_BEFORE_ADD);
+        addPersonsToClinic();
+        final int EXPECTED_VALUE_AFTER_ADD = 0;
+        final int ACTUAL_VALUE_AFTER_ADD = clinic.findPersonIdByPetName(NAME_OF_PET_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
     @Test
