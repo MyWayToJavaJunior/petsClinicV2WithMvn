@@ -27,7 +27,7 @@ public class ClinicTest {
     private static final int NUMBER_OF_CAT_TYPE = 1;
     private static final int NUMBER_OF_DOG_TYPE = 2;
     private static final int NUMBER_OF_BIRD_TIPE = 3;
-    private static final Class<? extends Pet> EXPECTED_CLASS_ENEMY_OF_PET_FIRST_PERSON = Bird.class;
+
 
     private Clinic clinic = new Clinic();
     private ArrayList<Person> expectedPersons = new ArrayList<Person>(100);
@@ -44,6 +44,20 @@ public class ClinicTest {
         clinic.addPerson(NAME_OF_SECOND_PERSON, NAME_OF_PET_SECOND_PERSON, NUMBER_OF_DOG_TYPE);
         clinic.addPerson(NAME_OF_THIRD_PERSON, NAME_OF_PET_THIRD_PERSON, NUMBER_OF_BIRD_TIPE);
     }
+
+    /**
+     * Сравнение ожидаемого массива(коллекции) Персон
+     * с массивом(коллекции) сгенерированным с помощью
+     * метода AddPerson класса Clinic
+     * через метод addPersonToClinic()
+     * !оба массива преведены к строкам,
+     * и сравниваются строки, т.к я
+     * пока не знаю как сравнить коллекции
+     * в asssert
+     * @throws Exception выбрасывает ошибку
+     * если массивы(коллекции) переведенные в строки
+     * не сходны.
+     */
     @Test
     public void testAddPerson() throws Exception {
         addPersonsToClinic();
@@ -56,11 +70,22 @@ public class ClinicTest {
         clinic.viewAllPersons();
     }
 
+    /**
+     * Сравнение ожидаемого класса врага животного
+     * и полученного по имени животного методом
+     * класса Clinic, используется метод
+     * AddPerson класса Clinic через метод
+     * addPersonToClinic() для заполнения
+     * массива(коллекции) Персон
+     * @throws Exception выбрасывает ошибку
+     * если классы врага животного, ожидаемый и полученный, не равны
+     */
     @Test
     public void testGetClassEnemyOfPetByName() throws Exception {
         addPersonsToClinic();
-        Class<? extends Pet> actualEnemyOfPetClass = clinic.getClassEnemyOfPetByName(NAME_OF_PET_FIRST_PERSON);
-        assertEquals(EXPECTED_CLASS_ENEMY_OF_PET_FIRST_PERSON, actualEnemyOfPetClass);
+        final Class<? extends Pet> EXPECTED_CLASS_ENEMY_OF_PET_FIRST_PERSON = Bird.class;
+        final Class<? extends Pet> ACTUAL_ENEMY_OF_PET_CLASS = clinic.getClassEnemyOfPetByName(NAME_OF_PET_FIRST_PERSON);
+        assertEquals(EXPECTED_CLASS_ENEMY_OF_PET_FIRST_PERSON, ACTUAL_ENEMY_OF_PET_CLASS);
     }
 
     @Test
@@ -128,15 +153,25 @@ public class ClinicTest {
 
     }
 
+    /**
+     * Сравнение ожидаемого и полученного значения
+     * возвращаемого методом isClinicEmpty
+     * класса Clinic, до и после добавления в него
+     * Персон методом AddPerson класса Clinic
+     * через метод addPersonToClinic()
+     * @throws Exception выбрасывает ошибку если
+     * до или после добавления Персон ожидаемое значение
+     * не сходится с актуальным
+     */
     @Test
     public void testIsClinicEmpty() throws Exception {
-        boolean expectedValueBeforeAdd = true;
-        boolean actualValueBeforeAdd = clinic.isClinicEmpty();
-        assertEquals(expectedValueBeforeAdd, actualValueBeforeAdd);
+        final boolean EXPECTED_VALUE_BEFORE_ADD = true;
+        final boolean ACTUAL_VALUE_BEFORE_ADD = clinic.isClinicEmpty();
+        assertEquals(EXPECTED_VALUE_BEFORE_ADD, ACTUAL_VALUE_BEFORE_ADD);
         addPersonsToClinic();
-        boolean expectedValueAfterAdd = false;
-        boolean actualValueAfterAdd = clinic.isClinicEmpty();
-        assertEquals(expectedValueAfterAdd, actualValueAfterAdd);
+        final boolean EXPECTED_VALUE_AFTER_ADD = false;
+        final boolean ACTUAL_VALUE_AFTER_ADD = clinic.isClinicEmpty();
+        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
     @Test
