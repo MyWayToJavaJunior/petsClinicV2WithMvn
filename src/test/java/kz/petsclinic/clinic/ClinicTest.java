@@ -124,13 +124,13 @@ public class ClinicTest {
     @Test
     public void testRemPersonByName() throws Exception {
         addPersonsToClinic();
-        final int EXPECTED_RESULT_BEFORE_ADD = 0;
-        final int ACTUAL_RESULT_BEFORE_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
-        assertEquals(EXPECTED_RESULT_BEFORE_ADD, ACTUAL_RESULT_BEFORE_ADD);
+        final int EXPECTED_RESULT_BEFORE_REM = 0;
+        final int ACTUAL_RESULT_BEFORE_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_REM, ACTUAL_RESULT_BEFORE_REM);
         clinic.remPersonByName(NAME_OF_FIRST_PERSON);
-        final int EXPECTED_VALUE_AFTER_ADD = -1;
-        final int ACTUAL_VALUE_AFTER_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
-        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
+        final int EXPECTED_VALUE_AFTER_REM = -1;
+        final int ACTUAL_VALUE_AFTER_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
     @Test
@@ -147,13 +147,13 @@ public class ClinicTest {
 
     @Test
     public void testFindPersonIdByPersonName() throws Exception {
-        final int EXPECTED_RESULT_BEFORE_REM = -1;
-        final int ACTUAL_RESULT_BEFORE_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
-        assertEquals(EXPECTED_RESULT_BEFORE_REM, ACTUAL_RESULT_BEFORE_REM);
+        final int EXPECTED_RESULT_BEFORE_ADD = -1;
+        final int ACTUAL_RESULT_BEFORE_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_ADD, ACTUAL_RESULT_BEFORE_ADD);
         addPersonsToClinic();
-        final int EXPECTED_VALUE_AFTER_REM = 0;
-        final int ACTUAL_VALUE_AFTER_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
-        assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
+        final int EXPECTED_VALUE_AFTER_ADD = 0;
+        final int ACTUAL_VALUE_AFTER_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
     @Test
