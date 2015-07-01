@@ -165,6 +165,26 @@ public class ClinicTest {
         assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
+    /**
+     * Проверяет метод FindPersonIdByPersonName()
+     * класса Clinic путем сравнения ожидаемого
+     * и полученного значения возвращаемого методом,
+     * до и после добавления в него
+     * Персон методом AddPerson класса Clinic
+     * через метод addPersonToClinic()
+     * В первом случае Персоны в массиве нет
+     * и метод FindPersonIdByPersonName() это
+     * подтверждает возвращаяя -1, что происходит
+     * когда метод FindPersonIdByPersonName() не находит
+     * Персоны с заданным именем, во втором, после добавления,
+     * метод FindPersonIdByPersonName() возвращает
+     * ожидаемый Id персоны.
+     * @throws Exception выбрасывает ошибку если
+     * Персона присутвует до добавления элементов
+     * в массив или если Персона отсутвует или
+     * находится в массиве под другим Id
+     * после добавления
+     */
     @Test
     public void testFindPersonIdByPersonName() throws Exception {
         final int EXPECTED_RESULT_BEFORE_ADD = -1;
@@ -176,6 +196,27 @@ public class ClinicTest {
         assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
+    /**
+     * Проверяет метод FindPersonIdByPetName()
+     * класса Clinic путем сравнения ожидаемого
+     * и полученного значения возвращаемого методом,
+     * до и после добавления в него
+     * Персон методом AddPerson класса Clinic
+     * через метод addPersonToClinic()
+     * В первом случае животного в массиве нет
+     * и метод FindPersonIdByPetName() это
+     * подтверждает возвращаяя -1, что происходит
+     * когда метод findPersonIdByPetName() не находит
+     * животного с заданным именем,
+     * во втором, после добавления,
+     * метод FindPersonIdByPetName() возвращает
+     * ожидаемый Id персоны.
+     * @throws Exception выбрасывает ошибку если
+     * животное присутвует до добавления элементов
+     * в массив или если животное отсутвует или
+     * находится в массиве под другим Id
+     * после добавления
+     */
     @Test
     public void testFindPersonIdByPetName() throws Exception {
         final int EXPECTED_RESULT_BEFORE_ADD = -1;
