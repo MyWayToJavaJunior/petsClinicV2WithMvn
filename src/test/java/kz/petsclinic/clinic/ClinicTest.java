@@ -187,15 +187,26 @@ public class ClinicTest {
         assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
+    /**
+     * Сравнение ожидаемого и полученного значения
+     * возвращаемого методом findPersonIdByPetName()
+     * класса Clinic, после переименования Персоны
+     * методом renPerson() класса Clinic, метод
+     * findPersonIdByPersonName() возвращает 0
+     * когда находит Персону с ожидаемым именем
+     * в результате перименования
+     * @throws Exception выбрасывает ошибку если
+     * после переименования не находит Персоны с
+     * новым именем
+     */
     @Test
     public void testRenPerson() throws Exception {
-        final boolean EXPECTED_RESULT = true;
-        boolean ACTUAL_RESULT = false;
+        final int EXPECTED_RESULT = 0;
         addPersonsToClinic();
         final String NAME_OF_REN_PERSON = NAME_OF_FIRST_PERSON;
         final String EXPECTED_NEW_NAME_OF_PERSON = "expectedNewNameOfPerson";
         clinic.renPerson(NAME_OF_REN_PERSON, EXPECTED_NEW_NAME_OF_PERSON);
-        if (clinic.findPersonIdByPersonName(EXPECTED_NEW_NAME_OF_PERSON) != -1) ACTUAL_RESULT = true;
+        final int ACTUAL_RESULT = clinic.findPersonIdByPersonName(EXPECTED_NEW_NAME_OF_PERSON);
         assertEquals(EXPECTED_RESULT, ACTUAL_RESULT);
     }
 
@@ -206,10 +217,10 @@ public class ClinicTest {
      * методом renPet() класса Clinic, метод
      * findPersonIdByPetName() возвращает 0
      * когда находит Персону с ожидаемым именем
-     * в результате перименования
+     * животного в результате перименования
      * @throws Exception выбрасывает ошибку если
-     * после переименования Персон ожидаемое значение
-     * не сходится с актуальным
+     * после переименования не находит животного с
+     * новым именем
      */
     @Test
     public void testRenPet() throws Exception {
