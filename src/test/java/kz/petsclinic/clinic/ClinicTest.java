@@ -84,11 +84,6 @@ public class ClinicTest {
         assertEquals(expectedPersons.toString(), actualPersons.toString());
     }
 
-    @Test
-    public void testViewAllPersons() throws Exception {
-
-    }
-
     /**
      * Сравнение ожидаемого класса врага животного
      * и полученного по имени животного методом
@@ -107,6 +102,15 @@ public class ClinicTest {
         assertEquals(EXPECTED_CLASS_ENEMY_OF_PET_FIRST_PERSON, ACTUAL_ENEMY_OF_PET_CLASS);
     }
 
+    /**
+     * Проверяет метод RemPersonsByClassOfPet()
+     * путем сравнения ожидаемого и полученного
+     * значения методом поиска Персоны
+     * до и после его удаления
+     * @throws Exception выбрасывает ошибку
+     * если Персона отсутсвует до удадения
+     * или присутвует после удаления
+     */
     @Test
     public void testRemPersonsByClassOfPet() throws Exception {
         addPersonsToClinic();
@@ -119,6 +123,15 @@ public class ClinicTest {
         assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
+    /**
+     * Проверяет метод remPersonById()
+     * путем сравнения ожидаемого и полученного
+     * значения методом поиска Персоны
+     * до и после его удаления
+     * @throws Exception выбрасывает ошибку
+     * если Персона отсутсвует до удадения
+     * или присутвует после удаления
+     */
     @Test
     public void testRemPersonById() throws Exception {
         addPersonsToClinic();
@@ -131,16 +144,15 @@ public class ClinicTest {
         assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
-    @Test
-    public void testViewPersonByName() throws Exception {
-
-    }
-
-    @Test
-    public void testViewPersonByPetName() throws Exception {
-
-    }
-
+    /**
+     * Проверяет метод remPersonByName()
+     * путем сравнения ожидаемого и полученного
+     * значения методом поиска Персоны
+     * до и после его удаления
+     * @throws Exception выбрасывает ошибку
+     * если Персона отсутсвует до удадения
+     * или присутвует после удаления
+     */
     @Test
     public void testRemPersonByName() throws Exception {
         addPersonsToClinic();
@@ -153,6 +165,15 @@ public class ClinicTest {
         assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
+    /**
+     * Проверяет метод remPersonByPetName()
+     * путем сравнения ожидаемого и полученного
+     * значения методом поиска животного
+     * до и после его удаления
+     * @throws Exception выбрасывает ошибку
+     * если животное отсутсвует до удадения
+     * или присутвует после удаления
+     */
     @Test
     public void testRemPersonByPetName() throws Exception {
         addPersonsToClinic();
