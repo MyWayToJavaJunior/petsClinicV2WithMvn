@@ -12,6 +12,9 @@ import static org.junit.Assert.*;
  */
 public class ClinicTest {
 
+    /**
+     * Ожидаемые значения для проведения тестов
+     */
     private static final String NAME_OF_FIRST_PERSON = "Vasily";
     private static final String NAME_OF_SECOND_PERSON = "Tuz";
     private static final String NAME_OF_THIRD_PERSON = "Inokenti";
@@ -29,11 +32,21 @@ public class ClinicTest {
     private static final int NUMBER_OF_BIRD_TIPE = 3;
     private static final int COUNT_OF_PERSONS_AFTER_USE_ADD_METHOD = 3;
 
-
+    /**
+     * Создание и инициализация экземпляра
+     * класса Clinic и двух массивов для
+     * использваония их в тестировании
+     */
     private Clinic clinic = new Clinic();
     private ArrayList<Person> expectedPersons = new ArrayList<Person>(clinic.getMaxPersonsInClinic());
     private ArrayList<Person> actualPersons;
 
+    /**
+     * Производит добавление трех определенных
+     * Персон в ожидаемый массив(коллекцию) для
+     * последующего его использования в тесте метода
+     * AddPerson() класса Clinic.
+     */
     public ClinicTest() {
         expectedPersons.add(FIRST_INPUT_PERSON);
         expectedPersons.add(SECOND_INPUT_PERSON);
@@ -41,7 +54,7 @@ public class ClinicTest {
     }
 
     /**
-     * Производит добавление трех определнных
+     * Производит добавление трех определенных
      * при инициализации класса
      * Персон в массив(коллекцию) Персон
      * экземпляра класса Clinic.
