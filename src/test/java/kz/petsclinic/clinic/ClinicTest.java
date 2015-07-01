@@ -136,24 +136,24 @@ public class ClinicTest {
     @Test
     public void testRemPersonByPetName() throws Exception {
         addPersonsToClinic();
-        final int EXPECTED_RESULT_BEFORE_ADD = 0;
-        final int ACTUAL_RESULT_BEFORE_ADD = clinic.findPersonIdByPetName(NAME_OF_PET_FIRST_PERSON);
-        assertEquals(EXPECTED_RESULT_BEFORE_ADD, ACTUAL_RESULT_BEFORE_ADD);
+        final int EXPECTED_RESULT_BEFORE_REM = 0;
+        final int ACTUAL_RESULT_BEFORE_REM = clinic.findPersonIdByPetName(NAME_OF_PET_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_REM, ACTUAL_RESULT_BEFORE_REM);
         clinic.remPersonByPetName(NAME_OF_PET_FIRST_PERSON);
-        final int EXPECTED_VALUE_AFTER_ADD = -1;
-        final int ACTUAL_VALUE_AFTER_ADD = clinic.findPersonIdByPetName(NAME_OF_PET_FIRST_PERSON);
-        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
+        final int EXPECTED_VALUE_AFTER_REM = -1;
+        final int ACTUAL_VALUE_AFTER_REM = clinic.findPersonIdByPetName(NAME_OF_PET_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
     @Test
     public void testFindPersonIdByPersonName() throws Exception {
-        final int EXPECTED_RESULT_BEFORE_ADD = -1;
-        final int ACTUAL_RESULT_BEFORE_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
-        assertEquals(EXPECTED_RESULT_BEFORE_ADD, ACTUAL_RESULT_BEFORE_ADD);
+        final int EXPECTED_RESULT_BEFORE_REM = -1;
+        final int ACTUAL_RESULT_BEFORE_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_REM, ACTUAL_RESULT_BEFORE_REM);
         addPersonsToClinic();
-        final int EXPECTED_VALUE_AFTER_ADD = 0;
-        final int ACTUAL_VALUE_AFTER_ADD = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
-        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
+        final int EXPECTED_VALUE_AFTER_REM = 0;
+        final int ACTUAL_VALUE_AFTER_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
     @Test
