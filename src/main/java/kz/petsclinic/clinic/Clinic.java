@@ -229,4 +229,8 @@ public class Clinic {
         return persons.size();
     }
 
+    public ArrayList<Person> getPersonsArray() {
+        return persons;
+    }
+
 }

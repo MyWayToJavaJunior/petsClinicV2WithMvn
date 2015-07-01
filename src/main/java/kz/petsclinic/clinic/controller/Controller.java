@@ -1,7 +1,10 @@
 package kz.petsclinic.clinic.controller;
 import kz.petsclinic.clinic.Clinic;
+import kz.petsclinic.clinic.Person;
 import kz.petsclinic.clinic.io.InputInterface;
 import kz.petsclinic.clinic.io.OutputInterface;
+
+import java.util.ArrayList;
 
 /**
  * Контроллер
@@ -104,7 +107,7 @@ public class Controller {
     /**
      * Добавление Персоны методом класса Clinic
      */
-    private void addPerson() {
+    public void addPerson() {
         if (clinic.isClinicFull()) {
             outputInterface.saidClinicFull();
         } else {
@@ -122,7 +125,7 @@ public class Controller {
     /**
      *  Вывод всех Персон методом класса Clinic
      */
-    private void viewAllPersons() {
+    public void viewAllPersons() {
         if (clinic.isClinicEmpty()) {
             outputInterface.saidNoPersonsInClinic();
         }
@@ -271,6 +274,7 @@ public class Controller {
         outputInterface.askForPetType();
         return inputInterface.getInt();
     }
+
 
 
 }
