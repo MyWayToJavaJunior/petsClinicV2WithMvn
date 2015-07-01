@@ -143,22 +143,68 @@ public class ClinicTest {
 
     @Test
     public void testRenPerson() throws Exception {
-
+        final boolean EXPECTED_RESULT = true;
+        boolean ACTUAL_RESULT = false;
+        addPersonsToClinic();
+        final String NAME_OF_REN_PERSON = NAME_OF_FIRST_PERSON;
+        final String EXPECTED_NEW_NAME_OF_PERSON = "expectedNewNameOfPerson";
+        clinic.renPerson(NAME_OF_REN_PERSON, EXPECTED_NEW_NAME_OF_PERSON);
+        if (clinic.findPersonIdByPersonName(EXPECTED_NEW_NAME_OF_PERSON) != -1) ACTUAL_RESULT = true;
+        assertEquals(EXPECTED_RESULT, ACTUAL_RESULT);
     }
 
     @Test
     public void testRenPet() throws Exception {
-
+        final boolean EXPECTED_RESULT = true;
+        boolean ACTUAL_RESULT = false;
+        addPersonsToClinic();
+        final String NAME_OF_REN_PET = NAME_OF_PET_FIRST_PERSON;
+        final String EXPECTED_NEW_NAME_OF_PET = "expectedNewNameOfPet";
+        clinic.renPet(NAME_OF_REN_PET, EXPECTED_NEW_NAME_OF_PET);
+        if (clinic.findPersonIdByPetName(EXPECTED_NEW_NAME_OF_PET) != -1) ACTUAL_RESULT = true;
+        assertEquals(EXPECTED_RESULT, ACTUAL_RESULT);
     }
 
+    /**
+     * —равнение ожидаемого и полученного значени€
+     * возвращаемого методом isPersonExistByName()
+     * класса Clinic, до и после добавлени€ в него
+     * ѕерсон методом AddPerson класса Clinic
+     * через метод addPersonToClinic()
+     * @throws Exception выбрасывает ошибку если
+     * до или после добавлени€ ѕерсон ожидаемое значение
+     * не сходитс€ с актуальным
+     */
     @Test
     public void testIsPersonExistByName() throws Exception {
-
+        final boolean EXPECTED_VALUE_BEFORE_ADD = false;
+        final boolean ACTUAL_VALUE_BEFORE_ADD = clinic.isPersonExistByName(NAME_OF_THIRD_PERSON);
+        assertEquals(EXPECTED_VALUE_BEFORE_ADD, ACTUAL_VALUE_BEFORE_ADD);
+        addPersonsToClinic();
+        final boolean EXPECTED_VALUE_AFTER_ADD = true;
+        final boolean ACTUAL_VALUE_AFTER_ADD = clinic.isPersonExistByName(NAME_OF_THIRD_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
+    /**
+     * —равнение ожидаемого и полученного значени€
+     * возвращаемого методом isPetExistByName()
+     * класса Clinic, до и после добавлени€ в него
+     * ѕерсон методом AddPerson класса Clinic
+     * через метод addPersonToClinic()
+     * @throws Exception выбрасывает ошибку если
+     * до или после добавлени€ ѕерсон ожидаемое значение
+     * не сходитс€ с актуальным
+     */
     @Test
     public void testIsPetExistByName() throws Exception {
-
+        final boolean EXPECTED_VALUE_BEFORE_ADD = false;
+        final boolean ACTUAL_VALUE_BEFORE_ADD = clinic.isPetExistByName(NAME_OF_PET_SECOND_PERSON);
+        assertEquals(EXPECTED_VALUE_BEFORE_ADD, ACTUAL_VALUE_BEFORE_ADD);
+        addPersonsToClinic();
+        final boolean EXPECTED_VALUE_AFTER_ADD = true;
+        final boolean ACTUAL_VALUE_AFTER_ADD = clinic.isPetExistByName(NAME_OF_PET_SECOND_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_ADD, ACTUAL_VALUE_AFTER_ADD);
     }
 
     /**
