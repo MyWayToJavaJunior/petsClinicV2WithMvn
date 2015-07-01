@@ -53,6 +53,12 @@ public class ClinicTest {
         clinic.addPerson(NAME_OF_THIRD_PERSON, NAME_OF_PET_THIRD_PERSON, NUMBER_OF_BIRD_TIPE);
     }
 
+    /**
+     * Производит добавление 100 Персон
+     * в массив(коллекцию) Персон экземпляра
+     * класса Clinic для теста метода
+     * который проверяет полон ли массив
+     */
     public void addPersonsToMaxCountOfClinic() {
         for (int i = 0; i < clinic.getMaxPersonsInClinic(); i++) {
             clinic.addPerson("nameOfPerson" + i, "nameOfPet" + i, NUMBER_OF_CAT_TYPE);
@@ -193,15 +199,23 @@ public class ClinicTest {
         assertEquals(EXPECTED_RESULT, ACTUAL_RESULT);
     }
 
+    /**
+     * Сравнение ожидаемого и полученного значения
+     * возвращаемого методом findPersonIdByPetName()
+     * класса Clinic, после переименования животного
+     * методом renPet() класса Clinic
+     * @throws Exception выбрасывает ошибку если
+     * до или после добавления Персон ожидаемое значение
+     * не сходится с актуальным
+     */
     @Test
     public void testRenPet() throws Exception {
-        final boolean EXPECTED_RESULT = true;
-        boolean ACTUAL_RESULT = false;
+        final int EXPECTED_RESULT = -1;
         addPersonsToClinic();
         final String NAME_OF_REN_PET = NAME_OF_PET_FIRST_PERSON;
         final String EXPECTED_NEW_NAME_OF_PET = "expectedNewNameOfPet";
         clinic.renPet(NAME_OF_REN_PET, EXPECTED_NEW_NAME_OF_PET);
-        if (clinic.findPersonIdByPetName(EXPECTED_NEW_NAME_OF_PET) != -1) ACTUAL_RESULT = true;
+        final int ACTUAL_RESULT = clinic.findPersonIdByPetName(EXPECTED_NEW_NAME_OF_PET);
         assertEquals(EXPECTED_RESULT, ACTUAL_RESULT);
     }
 
