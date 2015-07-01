@@ -103,12 +103,26 @@ public class ClinicTest {
 
     @Test
     public void testRemPersonsByClassOfPet() throws Exception {
-
+        addPersonsToClinic();
+        final int EXPECTED_RESULT_BEFORE_REM = 0;
+        final int ACTUAL_RESULT_BEFORE_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_REM, ACTUAL_RESULT_BEFORE_REM);
+        clinic.remPersonsByClassOfPet(FIRST_INPUT_PET.getClass());
+        final int EXPECTED_VALUE_AFTER_REM = -1;
+        final int ACTUAL_VALUE_AFTER_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
     @Test
     public void testRemPersonById() throws Exception {
-
+        addPersonsToClinic();
+        final int EXPECTED_RESULT_BEFORE_REM = 0;
+        final int ACTUAL_RESULT_BEFORE_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_RESULT_BEFORE_REM, ACTUAL_RESULT_BEFORE_REM);
+        clinic.remPersonById(clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON));
+        final int EXPECTED_VALUE_AFTER_REM = -1;
+        final int ACTUAL_VALUE_AFTER_REM = clinic.findPersonIdByPersonName(NAME_OF_FIRST_PERSON);
+        assertEquals(EXPECTED_VALUE_AFTER_REM, ACTUAL_VALUE_AFTER_REM);
     }
 
     @Test
