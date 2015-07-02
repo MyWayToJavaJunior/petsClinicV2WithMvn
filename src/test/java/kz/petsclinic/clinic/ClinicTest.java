@@ -29,7 +29,7 @@ public class ClinicTest {
     private static final Person THIRD_INPUT_PERSON = new Person(NAME_OF_THIRD_PERSON, THIRD_INPUT_PET);
     private static final int NUMBER_OF_CAT_TYPE = 1;
     private static final int NUMBER_OF_DOG_TYPE = 2;
-    private static final int NUMBER_OF_BIRD_TIPE = 3;
+    private static final int NUMBER_OF_BIRD_TYPE = 3;
     private static final int COUNT_OF_PERSONS_AFTER_USE_ADD_METHOD = 3;
 
     /**
@@ -63,7 +63,7 @@ public class ClinicTest {
     public void addPersonsToClinic() {
         clinic.addPerson(NAME_OF_FIRST_PERSON, NAME_OF_PET_FIRST_PERSON, NUMBER_OF_CAT_TYPE);
         clinic.addPerson(NAME_OF_SECOND_PERSON, NAME_OF_PET_SECOND_PERSON, NUMBER_OF_DOG_TYPE);
-        clinic.addPerson(NAME_OF_THIRD_PERSON, NAME_OF_PET_THIRD_PERSON, NUMBER_OF_BIRD_TIPE);
+        clinic.addPerson(NAME_OF_THIRD_PERSON, NAME_OF_PET_THIRD_PERSON, NUMBER_OF_BIRD_TYPE);
     }
 
     /**
@@ -85,7 +85,7 @@ public class ClinicTest {
      * !оба массива преведены к строкам,
      * и сравниваются строки, т.к я
      * пока не знаю как сравнить коллекции
-     * в asssert
+     * в assert
      * @throws Exception выбрасывает ошибку
      * если массивы(коллекции) переведенные в строки
      * не сходны.

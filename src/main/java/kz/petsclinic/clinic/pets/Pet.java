@@ -17,7 +17,7 @@ public abstract class Pet {
     public Pet(String nameOfPet, String ability) {
         this.nameOfPet = nameOfPet;
         this.ability = ability;
-        this.typeOfPet = this.getClass().getName();
+        this.typeOfPet = this.getClass().getSimpleName();
     }
 
     /**

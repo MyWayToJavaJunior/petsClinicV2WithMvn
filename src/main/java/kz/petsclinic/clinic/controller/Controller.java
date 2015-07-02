@@ -1,5 +1,6 @@
 package kz.petsclinic.clinic.controller;
 import kz.petsclinic.clinic.Clinic;
+import kz.petsclinic.clinic.exception.UserException;
 import kz.petsclinic.clinic.io.InputInterface;
 import kz.petsclinic.clinic.io.OutputInterface;
 
@@ -76,7 +77,7 @@ public class Controller {
      */
     public void firstMenu() {
         outputInterface.showFirstMenu();
-        int choicesFromFirstMenu = inputInterface.getInt();
+        int choicesFromFirstMenu = this.getInt();
         switch (choicesFromFirstMenu) {
             case 1:     addPerson();
                         break;
@@ -270,9 +271,19 @@ public class Controller {
      */
     public int askForAndGetTypeOfPet() {
         outputInterface.askForPetType();
-        return inputInterface.getInt();
+        return this.getInt();
     }
 
+    public int getInt() {
+        int result = 11;
+        String returnedString = inputInterface.getStr();
+        try {
+            result = Integer.valueOf(returnedString);
+        } catch (NumberFormatException e) {
+            System.out.println("it\'s not a int!");
+        }
+        return result;
+    }
 
 
 }

@@ -8,14 +8,6 @@ public class InputInterface {
     private Scanner scanner = new Scanner(System.in);
 
     /**
-     * ѕолучить число
-     * @return возвращает число типа int
-     */
-    public int getInt() {
-        return scanner.nextInt();
-    }
-
-    /**
      * ѕолучить строку
      * @return возвращает строку
      */
