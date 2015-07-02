@@ -87,10 +87,9 @@ public class Clinic {
      */
     public String viewPersonByName(String nameOfPerson) {
         String result = "";
-        for (int i = 0; i < persons.size(); i++) {
-            if (nameOfPerson.equals(persons.get(i).getNameOfPerson()))
-                result = persons.get(i).toString();
-        }
+        for (Person person : persons)
+            if (nameOfPerson.equals(person.getNameOfPerson()))
+                result = person.toString();
         return result;
     }
 
@@ -102,10 +101,9 @@ public class Clinic {
      */
     public String viewPersonByPetName(String nameOfPet) {
         String result = "";
-        for (int i = 0; i < persons.size(); i++) {
-            if (nameOfPet.equals(persons.get(i).getPetNameOfPerson()))
-                result = persons.get(i).toString();
-        }
+        for (Person person : persons)
+            if (nameOfPet.equals(person.getPetNameOfPerson()))
+                result = person.toString();
         return result;
     }
 
@@ -180,10 +178,9 @@ public class Clinic {
      */
     public boolean isPersonExistByName(String nameOfPerson) {
         boolean result = false;
-        for (int i = 0; i < persons.size(); i++) {
-            if (nameOfPerson.equals(persons.get(i).getNameOfPerson()))
+        for (Person person : persons)
+            if (nameOfPerson.equals(person.getNameOfPerson()))
                 result = true;
-        }
         return result;
     }
 
@@ -195,10 +192,9 @@ public class Clinic {
      */
     public boolean isPetExistByName(String nameOfPet) {
         boolean result = false;
-        for (int i = 0; i < persons.size(); i++) {
-            if (nameOfPet.equals(persons.get(i).getPetNameOfPerson()))
+        for (Person person : persons)
+            if (nameOfPet.equals(person.getPetNameOfPerson()))
                 result = true;
-        }
         return result;
     }
 
@@ -208,7 +204,7 @@ public class Clinic {
      * не достигло максимального размера массива
      */
     public boolean isClinicFull() {
-        return (getCountOfPersons() == MAX_PERSONS_IN_CLINIC) ? true : false;
+        return getCountOfPersons() == MAX_PERSONS_IN_CLINIC;
     }
 
     /**
@@ -217,7 +213,7 @@ public class Clinic {
      * ни одной Персоны
      */
     public boolean isClinicEmpty() {
-        return (getCountOfPersons() == 0) ? true : false;
+        return getCountOfPersons() == 0;
     }
 
     /**
@@ -229,10 +225,21 @@ public class Clinic {
         return persons.size();
     }
 
+    /**
+     * Получение массива Персон
+     * @return возвращает массив персон
+     * экземляра класса Clinic
+     */
     public ArrayList<Person> getPersonsArray() {
         return persons;
     }
 
+    /**
+     * Полчение максимального
+     * количества Персон для клиники
+     * @return возвращает максимальное
+     * количество персон для клиники
+     */
     public int getMaxPersonsInClinic() {
         return MAX_PERSONS_IN_CLINIC;
     }
