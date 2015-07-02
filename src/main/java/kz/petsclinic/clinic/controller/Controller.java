@@ -1,6 +1,5 @@
 package kz.petsclinic.clinic.controller;
 import kz.petsclinic.clinic.Clinic;
-import kz.petsclinic.clinic.exception.UserException;
 import kz.petsclinic.clinic.io.InputInterface;
 import kz.petsclinic.clinic.io.OutputInterface;
 
@@ -73,7 +72,11 @@ public class Controller {
     }
 
     /**
-     * ќсновное меню.
+     * ќсновное меню. ѕроисходит выбор
+     * варианта действи€ над масивом
+     * ѕерсон клиники пользователем,
+     * посредством вызова метода getInt()
+     * {@link #getInt()}
      */
     public void firstMenu() {
         outputInterface.showFirstMenu();
@@ -274,6 +277,16 @@ public class Controller {
         return this.getInt();
     }
 
+    /**
+     * ѕолучение числа служащего дл€
+     * определени€ выбора
+     * пользовател€.
+     * @return ¬озвращает число полученное от
+     * пользовател€ с консоли, если
+     * пользователь вел не число
+     * возвращает 11, что приводит
+     * switch'и в блок default
+     */
     public int getInt() {
         int result = 11;
         String returnedString = inputInterface.getStr();
